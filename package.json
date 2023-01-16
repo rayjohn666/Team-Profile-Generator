@@ -25,5 +25,8 @@
   "homepage": "https://github.com/rayjohn666/Team-Profile-Generator#readme",
   "dependencies": {
     "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }
