@@ -31,7 +31,7 @@ Organization, and creating lists, use it as you seem fit.
 
 ### Testing:
 
-* running node index.js
+* running node index.js should bring back the results to see if everything passed.
 
 
 ### Contributing:
