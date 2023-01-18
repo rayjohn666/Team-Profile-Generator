@@ -2,24 +2,24 @@
 
 const fs = require('fs');
 const path = require('path');
-const jest = require('jest');
+// const jest = require('jest');
 const inquirer = require('inquirer');
 
 // Team Generator 
-const generateTeam = require('./utils/generateTeam');
-const Employee = require('./lib/employee');
-const Manager = require('./lib/manager');
-const Engineer = require('./lib/engineer');
-const Intern = require('./lib/intern');
+const generateTeam = require('./src/generateTeam');
+const Employee = require('./lib/Employee.js');
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const ouputPath = path.join(OUTPUT_DIR, "Index.html");
-const render = require('../src/template');
+const outputPath = path.join(OUTPUT_DIR, "index.html");
+// const render = require('../src/template');
 
 const teamMembers = [];
 
 const promptManager = () => {
-    return inquierer.prompt ([
+    return inquirer.prompt ([
         {
             type: 'input',
             name: 'name',
@@ -88,7 +88,7 @@ const promptManager = () => {
         },
     ]).then(answers => {
         console.log (answers);
-        const manager = new Manager(answers.name, answers.employeeId, answers.email, answers.gihubUsername,);
+        const manager = new Manager(answers.name, answers.employeeId, answers.email, answers.gihubUsername, answers.officeNumber);
         teamMembers.push(manager);
         promptMenu();
     })
@@ -257,13 +257,13 @@ const promptIntern = () => {
 
 const buildTeam = () => {
     console.log(`
-    ====Finished buildling my Team!===
+    ====Finished building my Team!===
     `);
 
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFile("./output/team.html", "html");
+    fs.writeFile(outputPath, generateTeam(teamMembers),"utf-8");
 }
 
 promptManager();
