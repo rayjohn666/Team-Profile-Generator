@@ -20,9 +20,29 @@ module.exports = team => {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     ${generatePage(team)}
+
+    <ul class="card-wrapper">
+  <li class="card">
+    
+   <a href=""><h3>${manager.getName()}</h3></a>
+    <p></p>
+  </li>
+  <li class="card">
+    
+    <h3><a href=""></a></h3>
+    <p>t</p>
+  </li>
+  <li class="card">
+    
+    <h3><a href=""></a></h3>
+    <p></p>
+  </li>
+</ul>
+
 </body>
 </html>`
 

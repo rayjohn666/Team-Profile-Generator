@@ -64,10 +64,10 @@ const promptManager = () => {
         name: 'officeNumber',
         message: 'Enter the office Number. (Required)',
         validate: officeNumber => {
-            if (githubUsername) {
+            if (officeNumber) {
                 return true;
             } else {
-                console.log('Please enter your Github username.');
+                console.log('Please enter the Office number');
                 return false;
             }
         }
@@ -263,7 +263,9 @@ const buildTeam = () => {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFile(outputPath, generateTeam(teamMembers),"utf-8");
-}
+    fs.writeFile("index.html", generateTeam(teamMembers),(err) => 
+    err ? console.log("Error"): console.log ("No Error"))
+};
+
 
 promptManager();
