@@ -1,10 +1,23 @@
+const Employee = require("../lib/Employee")
+// generate manager in h3 tag
+
+require
+
 const generatePage = team => {
     const managerCard = manager => {
         return `
         ${manager.getOfficeNumber()}`
     }
-    const engineerCard = engineer => {}
-    const internCard = intern => {}
+    const engineerCard = engineer => {
+        return `
+        ${engineer.getGithub()}`
+        
+    }
+    const internCard = intern => {
+        return `
+        ${intern.getSchool()}`
+    }
+    
     
     const cards = []
     cards.push(team.filter(employee=>employee.getRole() === "Manager").map(manager=>managerCard(manager)));
@@ -28,17 +41,17 @@ module.exports = team => {
     <ul class="card-wrapper">
   <li class="card">
     
-   <a href=""><h3>${manager.getName()}</h3></a>
+//  <a href=""><h3> </h3></a>
     <p></p>
   </li>
   <li class="card">
     
-    <h3><a href=""></a></h3>
+   <a href=""><h3></h3></a>
     <p>t</p>
   </li>
   <li class="card">
     
-    <h3><a href=""></a></h3>
+  <a href=""><h3></h3></a>
     <p></p>
   </li>
 </ul>

@@ -110,6 +110,8 @@ const promptMenu = () => {
                 case "add an intern":
                     promptIntern();
                     break;
+                case "add a manager":
+                    promptManager();
                 default:
                     buildTeam();    
 
@@ -258,7 +260,9 @@ const promptIntern = () => {
 const buildTeam = () => {
     console.log(`
     ====Finished building my Team!===
-    `);
+    `
+    + teamMembers
+    );
 
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
