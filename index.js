@@ -99,8 +99,8 @@ const promptMenu = () => {
         {
             type: 'list',
             name: 'menu',
-            message: 'Select which option you would like to conitnue with',
-            choices: ['add an engineer', 'add an intern', 'finish building my team']
+            message: 'Select which option you would like to continue with...',
+            choices: ['add an engineer', 'add an intern', 'add a manager' , 'finish building my team']
         }])
         .then(userChoice => {
             switch (userChoice.menu) {
@@ -112,6 +112,7 @@ const promptMenu = () => {
                     break;
                 case "add a manager":
                     promptManager();
+                    break;
                 default:
                     buildTeam();    
 
@@ -249,9 +250,77 @@ const promptIntern = () => {
                 }
             }
         }
+
+// const promptIntern = () => {
+//     console.log(`
+//     ===============
+//     Add a New Intern
+//     ===============
+//     `);
+
+//     return inquirer.prompt([
+//         {
+//             type: `input`,
+//             name: `internName`,
+//             message: `What is your Intern's name?`,
+//             validate: nameInput => {
+//                 if (nameInput) {
+//                     return true;
+//                 } else {
+//                     console.log(`Please enter the Intern's name.`);
+//                     return false;
+//                 }
+//             }
+//         },
+//         {
+//             type: `input`,
+//             name: `internId`,
+//             message: `What is your Intern's employee ID?`,
+//             validate: nameInput => {
+//                 if (!nameInput) {
+//                     console.log("Please enter a valid manager ID.");
+//                     return false;
+//                 } else {
+//                     return true;
+//                 }
+//             }
+//         },
+//         {
+//             type: 'input',
+//             name: 'email',
+//             message: 'Enter your emailaddress (Required)',
+//             validate: email => {
+//                 if (email) {
+//                     return true;
+//                 } else {
+//                     console.log('Please enter your email address.');
+//                     return false;
+//                 }
+//             }
+//         },
+//         {
+//             type: `input`,
+//             name: `internSchool`,
+//             message: `What school is your Intern attending?`,
+//             validate: nameInput => {
+//                 if (!nameInput) {
+//                     console.log(`Please enter a valid institution.`)
+//                     return false;
+//                 } else {
+//                     return true;
+//                 }
+//             }
+//         },
+//     ]).then(answers => {
+//         const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+//         teamArray.push(intern);
+//         console.log(`Your Intern has been added to the team!`);
+//         addEmployee();
+//     })
+// };
     ]).then(answers => {
         console.log(answers);
-        const engineer = new Intern(answers.name, answers.employeeId, answers.email, answers.githubUsername);
+        const intern = new Intern(answers.name, answers.employeeId, answers.email, answers.githubUsername);
         teamMembers.push(intern);
         promptMenu();
     })
