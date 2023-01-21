@@ -4,6 +4,9 @@ const Employee = require("../lib/Employee")
 require
 
 const generatePage = team => {
+
+    console.log(team);
+
     const managerCard = manager => {
         return `
         ${manager.getOfficeNumber()}
@@ -58,6 +61,7 @@ module.exports = team => {
 </head>
 <body>
     ${generatePage(team)}
+    
     <ul class="card-wrapper">
   <li class="card">
   <a href=""><h3></h3></a>
