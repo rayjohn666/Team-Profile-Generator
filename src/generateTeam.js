@@ -58,16 +58,15 @@ module.exports = team => {
 </head>
 <body>
     ${generatePage(team)}
-    ${generateCard(data)}
     <ul class="card-wrapper">
   <li class="card">
-    
-//  <a href=""><h3></h3></a>
+  <a href=""><h3></h3></a>
     <p></p>
   </li>
   <li class="card">
     
-   <a href=""><h3></h3></a>
+   <a href=""><h3>
+   </h3></a>
     <p>t</p>
   </li>
   <li class="card">
