@@ -4,49 +4,81 @@ const Employee = require("../lib/Employee")
 require
 
 const generatePage = team => {
+    let html = ""
+    for (let index = 0; index < team.length; index++) {
+        const teamMember = team[index];
+
+        if (teamMember.type === "Employee") {
+            html += `<li class="card">
+            <h3> Employee </h3>
+
+            <p>Name: ${teamMember.name}</p>
+            <p>Email: ${teamMember.email}</p>
+            <p>Id: ${teamMember.id}</p>
+
+            </li>
+            `
+            
+        };
+
+
+
+        if (teamMember.type === "manager"){
+            html += `
+
+            <li class="card">
+
+            <h3> Manager </h3>
+
+            
+            <p>Name: ${teamMember.name}</p>
+            <p>Email: ${teamMember.email}</p>
+            <p>Id: ${teamMember.id}</p>
+            <p>Office Number: ${teamMember.officeNumber}</p>
+
+            </li>
+            `
+
+        };
+
+
+
+        if (teamMember.type === "engineer") {
+            html += `<li class="card">
+            <h3> Engineer </h3>
+            
+            <p>Name: ${teamMember.name}</p>
+            <p>Email: ${teamMember.email}</p>
+            <p>Id: ${teamMember.id}</p>
+            <p>Github: ${teamMember.github}</p>
+            
+            </li>
+            `
+            
+        };
+
+        if (teamMember.type === "intern") {
+            html += `<li class="card">
+            <h3> Intern </h3>
+            
+            <p>Name: ${teamMember.name}</p>
+            <p>Email:${teamMember.email}</p>
+            <p>Id: ${teamMember.id}</p>
+            <p>School: ${teamMember.school}</p>
+            
+            </li>
+            `
+            
+        };
+
+    }
 
     console.log(team);
-
-    const managerCard = manager => {
-        return `
-        ${manager.getOfficeNumber()}
-        ${manager.getName()}
-        ${manager.getId()}
-        ${manager.getEmail()}
-        ${manager.getRole()}`
-    }
-    const engineerCard = engineer => {
-        return `
-        ${engineer.getGithub()}
-        ${engineer.getName()}
-        ${engineer.getId()}
-        ${engineer.getEmail()}
-        ${engineer.getRole()}`
-        
-    }
-    const internCard = intern => {
-        return `
-        ${intern.getSchool()}
-        ${intern.getRole()}
-        ${intern.getName()}
-        ${intern.getId()}
-        ${intern.getEmail()}
-        `
-    }
-    const employeeCard = employee => {
-        return `
-        ${employee.getName()}
-        ${employee.getId()}
-        ${employee.getEmail()}
-        ${employee.getRole()}`
-    }
-    
-    
-    const generateCards = data => {
-    cards.push(team.filter(employee=>employee.getRole() === "Manager").map(manager=>managerCard(manager)));
-    return cards.join("")
-    }
+    return html
 }
+
+    
+// TODO: add engineer, intern, and employee in cards.
 // TODO: get cards to print data for managers and employees.
 module.exports = team => {
     return `
@@ -62,74 +94,10 @@ module.exports = team => {
 <body>
     ${generatePage(team)}
     
-    <ul class="card-wrapper">
-  <li class="card">
-  <a href=""><h3></h3></a>
-    <p></p>
-  </li>
-  <li class="card">
-    
-   <a href=""><h3>
-   </h3></a>
-    <p>t</p>
-  </li>
-  <li class="card">
-    
-  <a href=""><h3></h3></a>
-    <p></p>
-  </li>
-</ul>
+   
 
 </body>
 </html>`
 
 }
 
-// const generateCard = data => {
-
-//   const userData = employee => {
-//       if (employee.officeNumber) {
-//           return `Office Number: ${employee.officeNumber}`
-//       }
-//       if (employee.school) {
-//           return `School: ${employee.school}`
-//       }
-//       if (employee.github) {
-//           return `<div class="social">GitHub: <a href="https://github.com/${employee.github}" target="_blank"> <i class="fab fa-github"></i> </a></div>`
-          
-//       }
-//   };
-
-//   const employee = employee => {
-//       if (employee.getRole()=="Manager") {
-//           return `../assets/images/Manager.png`
-//       }
-//       if (employee.getRole()=="Engineer") {
-//           return `../assets/images/Engineer.png`
-//       }
-//       if (employee.getRole()=="Intern") {
-//           return `../assets/images/Intern.png`
-//       }
-//   };
-
-  
-//   return `            
-//           ${data.map( teamMember => {
-//               return `
-//               <div class="col-md-6 col-lg-4 item">
-//                   <div class="box"> <img class="rounded" src=${userImg(teamMember)}> 
-//                       <h3 class="name">${teamMember.getName()}</h3>
-//                       <p class="title">${teamMember.getRole()}</p>
-//                       <p class="description">Id: ${teamMember.getId()} </p>
-//                       <p class="description">Email: <a href="mailto:${teamMember.getEmail()}"> ${teamMember.getEmail()} </a> </p>
-//                       <p class="description">${userData(teamMember)}</p>
-//                   </div> 
-//               </div>
-//       `
-//       }).join('')}            
-//   `
-// }
-
-// module.exports = {
-//   generateTeamHtml
-// };
